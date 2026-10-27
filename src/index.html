@@ -46,8 +46,9 @@
     --warn-hover: #b45309;
     --roxo: #7c3aed;
   }
-  body { background: var(--bg-body); color: var(--text); min-height: 100vh; transition: background .2s, color .2s; }
-  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+  html, body { min-height: 100%; margin: 0; padding: 0; background: var(--bg-body); }
+  body { color: var(--text); transition: background .2s, color .2s; }
+  * { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
   .oculto { display: none !important; }
   body.tamanho-pequeno { font-size: 0.88rem; }
   body.tamanho-medio   { font-size: 1rem; }
@@ -84,7 +85,9 @@
   .btn-sm { padding: 6px 12px; font-size: .82rem; }
   .btn-full { width: 100%; }
 
-  .topbar { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+  /* LAYOUT NATURAL — página inteira rola */
+  #app { display: flex; flex-direction: column; width: 100%; }
+  .topbar { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; flex-shrink: 0; z-index: 10; }
   .topbar .logo { font-size: 1.2rem; font-weight: bold; color: var(--primary); }
   .topbar .user-info { display: flex; align-items: center; gap: 12px; font-size: .9rem; color: var(--text-dim); flex-wrap: wrap; }
   .topbar .user-info b { color: var(--text); }
@@ -96,15 +99,18 @@
   .btn-tema { background: var(--bg-hover); border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 1rem; transition: .15s; }
   .btn-tema:hover { background: var(--border); }
 
-  .layout { display: flex; min-height: calc(100vh - 61px); }
+  .layout { display: flex; flex: 1; width: 100%; }
   .sidebar { background: var(--bg-sidebar); width: 230px; padding: 18px 0; border-right: 1px solid var(--border); flex-shrink: 0; transition: width .2s; }
   .sidebar .menu-item { padding: 13px 22px; cursor: pointer; color: var(--text-dim); font-size: .95rem; display: flex; align-items: center; gap: 10px; border-left: 3px solid transparent; transition: .15s; white-space: nowrap; }
   .sidebar .menu-item:hover { background: var(--bg-hover); color: var(--text); }
   .sidebar .menu-item.ativo { background: var(--bg-input); color: var(--primary); border-left-color: var(--primary); font-weight: bold; }
   .sidebar .menu-item .icone { font-size: 1.1rem; }
-  .conteudo { flex: 1; padding: 24px; overflow-y: auto; }
-  .conteudo h2 { color: var(--primary); margin-bottom: 6px; }
-  .conteudo .descricao { color: var(--text-dim); font-size: .9rem; margin-bottom: 20px; }
+
+  .conteudo { flex: 1; padding: 20px; display: flex; flex-direction: column; background: var(--bg-body); min-width: 0; }
+  .secao { display: flex; flex-direction: column; width: 100%; }
+
+  .conteudo h2 { color: var(--primary); margin-bottom: 6px; flex-shrink: 0; }
+  .conteudo .descricao { color: var(--text-dim); font-size: .9rem; margin-bottom: 20px; flex-shrink: 0; }
 
   .painel { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin-bottom: 20px; }
   .painel h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.05rem; }
@@ -115,6 +121,10 @@
   .msg-ok { background: rgba(34,197,94,.15); border-left: 4px solid var(--success); color: var(--success); }
   .msg-erro { background: rgba(239,68,68,.15); border-left: 4px solid var(--danger); color: var(--danger); }
   .msg-aviso { background: rgba(245,158,11,.15); border-left: 4px solid var(--warn); color: var(--warn); }
+
+  .slider-group { margin-bottom: 20px; background: var(--bg-input); padding: 15px; border-radius: 8px; border: 1px solid var(--border); }
+  .slider-group label { display: flex; justify-content: space-between; color: var(--text); font-weight: bold; font-size: 0.95rem; margin-bottom: 10px; }
+  .slider-group input[type="range"] { width: 100%; cursor: pointer; accent-color: var(--primary); }
 
   .bloco-calculo {
     background: var(--bg-input);
@@ -132,205 +142,44 @@
   .bloco-calculo .item-calc.markup .val-calc { color: var(--warn); }
   .bloco-calculo .item-calc.margem .val-calc { color: var(--success); }
 
-  .hist-emb {
-    background: var(--bg-input);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 15px;
-  }
-  .hist-emb .hist-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .hist-emb .hist-header h4 {
-    color: var(--primary);
-    font-size: .9rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+  .hist-emb { background: var(--bg-input); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 15px; }
+  .hist-emb .hist-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 10px; flex-wrap: wrap; }
+  .hist-emb .hist-header h4 { color: var(--primary); font-size: .9rem; font-weight: bold; display: flex; align-items: center; gap: 6px; }
   .hist-emb table { margin-top: 0; }
   .hist-emb th, .hist-emb td { padding: 8px 10px; font-size: .84rem; }
   .hist-emb tr.atual td { background: rgba(56,189,248,.12); font-weight: bold; }
   .hist-emb tr.atual td:first-child::before { content: "▸ "; color: var(--primary); }
   .hist-emb .vazio-hist { color: var(--text-dimmer); font-size: .85rem; font-style: italic; text-align: center; padding: 15px; }
 
-  .bloco-promo {
-    background: rgba(245,158,11,.08);
-    border: 1.5px solid var(--warn);
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 15px;
-  }
-  .bloco-promo h4 {
-    color: var(--warn);
-    font-size: .9rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+  .bloco-promo { background: rgba(245,158,11,.08); border: 1.5px solid var(--warn); border-radius: 10px; padding: 14px 16px; margin-bottom: 15px; }
+  .bloco-promo h4 { color: var(--warn); font-size: .9rem; font-weight: bold; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
   .bloco-promo .form-grid { margin-bottom: 0; }
   .bloco-promo .campo input { padding: 9px 11px; }
-  .bloco-promo .aviso-promo {
-    font-size: .78rem;
-    color: var(--text-dimmer);
-    margin-top: 8px;
-    line-height: 1.4;
-  }
+  .bloco-promo .aviso-promo { font-size: .78rem; color: var(--text-dimmer); margin-top: 8px; line-height: 1.4; }
 
-  .nav-mes {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 20px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px;
-    flex-wrap: wrap;
-  }
-  .nav-mes .btn-mes {
-    background: var(--bg-input);
-    border: 1px solid var(--border);
-    color: var(--text);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: bold;
-    transition: .15s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  .nav-mes { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; flex-wrap: wrap; }
+  .nav-mes .btn-mes { background: var(--bg-input); border: 1px solid var(--border); color: var(--text); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; font-weight: bold; transition: .15s; display: flex; align-items: center; justify-content: center; }
   .nav-mes .btn-mes:hover { background: var(--bg-hover); border-color: var(--primary); color: var(--primary); }
-  .nav-mes .mes-atual {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: var(--primary);
-    min-width: 220px;
-    text-align: center;
-    text-transform: capitalize;
-  }
-  .nav-mes .btn-hoje {
-    padding: 8px 16px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    background: var(--bg-input);
-    color: var(--text-dim);
-    cursor: pointer;
-    font-size: .85rem;
-    font-weight: bold;
-    transition: .15s;
-  }
+  .nav-mes .mes-atual { font-size: 1.25rem; font-weight: bold; color: var(--primary); min-width: 220px; text-align: center; text-transform: capitalize; }
+  .nav-mes .btn-hoje { padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg-input); color: var(--text-dim); cursor: pointer; font-size: .85rem; font-weight: bold; transition: .15s; }
   .nav-mes .btn-hoje:hover { border-color: var(--primary); color: var(--primary); }
 
-  .bloco-meta {
-    background: var(--bg-card);
-    border: 1.5px solid var(--primary);
-    border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 20px;
-  }
-  .bloco-meta .linha-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
-  }
-  .bloco-meta .campo-meta {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .bloco-meta .campo-meta label {
-    font-size: .85rem;
-    color: var(--text-dim);
-    font-weight: bold;
-  }
-  .bloco-meta .campo-meta input {
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1.5px solid var(--border);
-    background: var(--bg-input);
-    color: var(--text);
-    font-size: 1rem;
-    width: 140px;
-    font-weight: bold;
-  }
-  .barra-progresso {
-    width: 100%;
-    height: 22px;
-    background: var(--bg-input);
-    border-radius: 11px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    position: relative;
-    margin-bottom: 8px;
-  }
-  .barra-progresso .preenchida {
-    height: 100%;
-    background: linear-gradient(90deg, var(--success), var(--primary));
-    transition: width .3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: .75rem;
-    font-weight: bold;
-    border-radius: 11px;
-    min-width: 40px;
-  }
-  .bloco-meta .info-meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: .85rem;
-    color: var(--text-dim);
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+  .bloco-meta { background: var(--bg-card); border: 1.5px solid var(--primary); border-radius: 12px; padding: 18px; margin-bottom: 20px; }
+  .bloco-meta .linha-meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .bloco-meta .campo-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .bloco-meta .campo-meta label { font-size: .85rem; color: var(--text-dim); font-weight: bold; }
+  .bloco-meta .campo-meta input { padding: 8px 12px; border-radius: 8px; border: 1.5px solid var(--border); background: var(--bg-input); color: var(--text); font-size: 1rem; width: 140px; font-weight: bold; }
+  .barra-progresso { width: 100%; height: 22px; background: var(--bg-input); border-radius: 11px; overflow: hidden; border: 1px solid var(--border); position: relative; margin-bottom: 8px; }
+  .barra-progresso .preenchida { height: 100%; background: linear-gradient(90deg, var(--success), var(--primary)); transition: width .3s; display: flex; align-items: center; justify-content: center; color: #fff; font-size: .75rem; font-weight: bold; border-radius: 11px; min-width: 40px; }
+  .bloco-meta .info-meta { display: flex; justify-content: space-between; font-size: .85rem; color: var(--text-dim); flex-wrap: wrap; gap: 8px; }
   .bloco-meta .info-meta b { color: var(--text); }
   .bloco-meta .info-meta .falta { color: var(--warn); font-weight: bold; }
   .bloco-meta .info-meta .bateu { color: var(--success); font-weight: bold; }
 
-  .mov-kpis {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 14px;
-    margin-bottom: 20px;
-  }
-  .mov-kpi {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px;
-  }
-  .mov-kpi .lbl {
-    font-size: .75rem;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    font-weight: bold;
-    margin-bottom: 6px;
-  }
-  .mov-kpi .val {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--success);
-  }
+  .mov-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 20px; }
+  .mov-kpi { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+  .mov-kpi .lbl { font-size: .75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .5px; font-weight: bold; margin-bottom: 6px; }
+  .mov-kpi .val { font-size: 1.5rem; font-weight: bold; color: var(--success); }
   .mov-kpi .val.azul { color: var(--primary); }
   .mov-kpi .val.amarelo { color: var(--warn); }
   .mov-kpi .val.roxo { color: var(--roxo); }
@@ -338,17 +187,10 @@
   .mov-kpi .val.negativo { color: var(--danger); }
   .mov-kpi .sub { font-size: .78rem; color: var(--text-dimmer); margin-top: 4px; }
 
-  .form-mov {
-    display: grid;
-    grid-template-columns: 160px 160px 1fr auto;
-    gap: 10px;
-    align-items: end;
-  }
+  .form-mov { display: grid; grid-template-columns: 160px 160px 1fr auto; gap: 10px; align-items: end; }
   .form-mov .campo { margin-bottom: 0; }
   .form-mov input { padding: 10px 12px; }
-  @media (max-width: 800px) {
-    .form-mov { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 800px) { .form-mov { grid-template-columns: 1fr; } }
 
   table { width: 100%; border-collapse: collapse; margin-top: 12px; }
   th, td { padding: 11px; text-align: left; border-bottom: 1px solid var(--border); font-size: .9rem; }
@@ -382,10 +224,10 @@
   .preview-img img { max-width: 120px; max-height: 120px; border-radius: 8px; border: 1px solid var(--border); }
 
   /* ============ GRID E PRODUTOS ============ */
-  .venda-layout { display: grid; grid-template-columns: 1fr 460px; gap: 18px; height: calc(100vh - 130px); }
-  .venda-esquerda { display: flex; flex-direction: column; min-height: 0; }
-  .venda-direita { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; display: flex; flex-direction: column; min-height: 0; }
-  .venda-busca { display: flex; gap: 10px; margin-bottom: 14px; }
+  .venda-layout { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 14px; }
+  .venda-esquerda { display: flex; flex-direction: column; min-width: 0; }
+  .venda-direita { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; display: flex; flex-direction: column; }
+  .venda-busca { display: flex; gap: 10px; margin-bottom: 14px; flex-shrink: 0; }
   .venda-busca input { flex: 1; padding: 12px 12px 12px 40px; border-radius: 8px; border: 2px solid var(--border); background: var(--bg-card); color: var(--text); font-size: .95rem; }
   .venda-busca input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(56,189,248,.2); }
   .venda-busca-wrap { position: relative; flex: 1; display: flex; }
@@ -394,18 +236,16 @@
   .btn-organizar:hover { border-color: var(--primary); color: var(--primary); }
   .btn-organizar.ativo { background: var(--success); color: #fff; border-color: var(--success); }
 
-  .venda-abas { display: flex; gap: 8px; margin-bottom: 14px; overflow-x: auto; padding-bottom: 4px; }
+  .venda-abas { display: flex; gap: 8px; margin-bottom: 14px; overflow-x: auto; padding-bottom: 4px; flex-shrink: 0; }
   .venda-aba { padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-dim); cursor: pointer; font-size: .88rem; white-space: nowrap; transition: .15s; }
   .venda-aba:hover { border-color: var(--primary); color: var(--text); }
   .venda-aba.ativa { background: var(--primary); color: #fff; border-color: var(--primary); font-weight: bold; }
 
   .grade-produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 14px;
-    overflow-y: auto;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
     padding-right: 6px;
-    flex: 1;
     align-content: start;
   }
 
@@ -418,8 +258,8 @@
     transition: .15s;
     display: flex;
     flex-direction: column;
-    gap: 8px;
     position: relative;
+    min-height: 200px;
   }
   .produto-card:hover {
     border-color: var(--primary);
@@ -432,7 +272,6 @@
   .produto-card .img-wrap {
     width: 100%;
     aspect-ratio: 1 / 1;
-    max-height: 160px;
     flex-shrink: 0;
     border-radius: 8px;
     overflow: hidden;
@@ -440,16 +279,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 8px;
   }
   .produto-card .img-wrap img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 6px;
+    padding: 4px;
   }
   .produto-card .img-wrap .sem-img { color: #cbd5e1; font-size: 2.2rem; }
-  .produto-card .nome { font-size: .88rem; font-weight: bold; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-height: 20px; line-height: 1.2; margin-top: 4px; }
-  .produto-card .preco { font-size: 1.15rem; font-weight: bold; color: var(--success); margin-top: auto; }
+  .produto-card .nome { font-size: .88rem; font-weight: bold; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.2; flex-shrink: 0; }
+  .produto-card .preco { font-size: 1.15rem; font-weight: bold; color: var(--success); margin-top: auto; padding-top: 6px; }
   .produto-card .preco .preco-promo-tag { font-size: .68rem; background: var(--warn); color: #0f172a; padding: 2px 6px; border-radius: 4px; margin-left: 6px; font-weight: bold; display: inline-block; vertical-align: middle; }
   .produto-card .preco-promo-info { font-size: .72rem; color: var(--warn); font-weight: bold; margin-top: 2px; }
   .produto-card .badge-estoque { position: absolute; top: 6px; right: 6px; font-size: .68rem; padding: 3px 8px; z-index: 2; }
@@ -498,31 +338,32 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    flex-shrink: 0;
   }
 
-  .carrinho-header { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .carrinho-header { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
   .carrinho-header h3 { color: var(--primary); font-size: 1rem; }
   .carrinho-header .contador { background: var(--primary); color: #fff; padding: 3px 10px; border-radius: 12px; font-size: .78rem; font-weight: bold; }
 
   .carrinho-topo {
-    padding: 12px 14px;
+    padding: 10px 14px;
     border-bottom: 1px solid var(--border);
     background: var(--bg-input);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     flex-shrink: 0;
   }
   .carrinho-topo .linha-total { display: flex; justify-content: space-between; align-items: center; }
   .carrinho-topo .label { color: var(--text-dim); font-size: .85rem; }
-  .carrinho-topo .valor { font-size: 1.7rem; font-weight: bold; color: var(--success); }
+  .carrinho-topo .valor { font-size: 1.5rem; font-weight: bold; color: var(--success); }
   .carrinho-topo .linha-total-detalhe { display: flex; justify-content: space-between; align-items: center; font-size: .8rem; color: var(--text-dim); }
   .carrinho-topo .linha-total-detalhe .desconto-val { color: var(--warn); font-weight: bold; }
-  .btn-desconto { background: var(--bg-hover); border: 1px solid var(--warn); color: var(--warn); padding: 8px 12px; border-radius: 6px; font-size: .9rem; font-weight: bold; cursor: pointer; transition: .15s; }
+  .btn-desconto { background: var(--bg-hover); border: 1px solid var(--warn); color: var(--warn); padding: 6px 10px; border-radius: 6px; font-size: .85rem; font-weight: bold; cursor: pointer; transition: .15s; }
   .btn-desconto:hover { background: rgba(245,158,11,.15); }
   .btn-desconto.ativo { background: var(--warn); color: #0f172a; }
 
-  .carrinho-itens { flex: 1; overflow-y: auto; padding: 10px; min-height: 80px; }
+  .carrinho-itens { padding: 10px; }
   .carrinho-itens-titulo { font-size: .78rem; color: var(--text-dim); text-transform: uppercase; font-weight: bold; letter-spacing: .5px; margin-bottom: 6px; }
   .carrinho-vazio { text-align: center; color: var(--text-dimmer); padding: 40px 20px; font-style: italic; font-size: .9rem; }
   .item-carrinho { background: var(--bg-input); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
@@ -546,41 +387,41 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 14px;
+    padding: 6px 12px;
     border-radius: 8px;
     background: var(--bg-card);
     border: 1.5px solid var(--border);
     transition: .15s;
   }
   .linha-pagamento.ativa { border-color: var(--primary); background: rgba(56,189,248,.08); }
-  .linha-pagamento .icone-forma { font-size: 1.3rem; flex-shrink: 0; width: 28px; text-align: center; }
+  .linha-pagamento .icone-forma { font-size: 1.2rem; flex-shrink: 0; width: 24px; text-align: center; }
   .linha-pagamento .nome-forma {
-    font-size: 1.05rem;
+    font-size: .95rem;
     font-weight: bold;
     text-transform: uppercase;
     color: var(--text);
     flex: 1;
   }
   .linha-pagamento .campo-valor-forma {
-    width: 110px;
+    width: 100px;
     flex-shrink: 0;
-    padding: 8px 10px;
+    padding: 6px 8px;
     border-radius: 6px;
     border: 1.5px solid var(--border);
     background: var(--bg-input);
     color: var(--text);
-    font-size: 1rem;
+    font-size: .95rem;
     font-weight: bold;
     text-align: center;
   }
   .linha-pagamento .campo-valor-forma:focus { outline: none; border-color: var(--primary); }
   .linha-pagamento .campo-valor-forma.tem-valor { background: rgba(34,197,94,.1); border-color: var(--success); color: var(--success); }
 
-  .info-restante { display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; border-radius: 8px; background: var(--bg-card); border: 1.5px solid var(--border); margin-top: 6px; }
+  .info-restante { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; border-radius: 8px; background: var(--bg-card); border: 1.5px solid var(--border); margin-top: 4px; }
   .info-restante.negativo { border-color: var(--danger); background: rgba(239,68,68,.08); }
   .info-restante.positivo { border-color: var(--success); background: rgba(34,197,94,.08); }
-  .info-restante .lbl { font-size: .9rem; color: var(--text-dim); font-weight: bold; text-transform: uppercase; }
-  .info-restante .val { font-size: 1.25rem; font-weight: bold; color: var(--warn); }
+  .info-restante .lbl { font-size: .8rem; color: var(--text-dim); font-weight: bold; text-transform: uppercase; }
+  .info-restante .val { font-size: 1.1rem; font-weight: bold; color: var(--warn); }
   .info-restante.negativo .val { color: var(--danger); }
   .info-restante.positivo .val { color: var(--success); }
 
@@ -593,14 +434,14 @@
   }
   .atalhos-pagamento button {
     flex: 1;
-    min-width: 80px;
-    padding: 12px 8px;
+    min-width: 70px;
+    padding: 8px 4px;
     border-radius: 8px;
     border: 1.5px solid var(--border);
     background: var(--bg-card);
     color: var(--text);
     cursor: pointer;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: bold;
     transition: .15s;
     white-space: nowrap;
@@ -611,10 +452,10 @@
     background: rgba(56,189,248,.08);
   }
 
-  .btn-finalizar { width: 100%; padding: 14px; border-radius: 8px; border: none; background: var(--success); color: #fff; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: .15s; }
+  .btn-finalizar { width: 100%; padding: 12px; border-radius: 8px; border: none; background: var(--success); color: #fff; font-size: 1.05rem; font-weight: bold; cursor: pointer; transition: .15s; }
   .btn-finalizar:hover:not(:disabled) { background: var(--success-hover); }
   .btn-finalizar:disabled { background: var(--bg-hover); color: var(--text-dimmer); cursor: not-allowed; }
-  .btn-limpar-carrinho { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--danger); background: transparent; color: var(--danger); cursor: pointer; font-size: .9rem; }
+  .btn-limpar-carrinho { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid var(--danger); background: transparent; color: var(--danger); cursor: pointer; font-size: .85rem; }
   .btn-limpar-carrinho:hover { background: rgba(239,68,68,.1); }
 
   .tabs-desconto { display: flex; gap: 6px; margin-bottom: 14px; }
@@ -708,8 +549,7 @@
   .total-entrada .lbl-tot { color: var(--text-dim); font-size: .9rem; }
   .total-entrada .vlr-tot { font-size: 1.4rem; font-weight: bold; color: var(--success); }
 
-  .barra-atalhos { position: fixed; bottom: 0; right: 0; background: var(--bg-card); border-top-left-radius: 10px; padding: 6px 12px; font-size: .75rem; color: var(--text-dimmer); border: 1px solid var(--border); border-right: none; border-bottom: none; display: flex; gap: 12px; z-index: 500; }
-  .barra-atalhos span b { color: var(--primary); }
+  .barra-atalhos { display: none; }
 
   .zona-perigo { border: 2px solid var(--danger) !important; background: rgba(239,68,68,.05); }
   .zona-perigo h3 { color: var(--danger) !important; }
@@ -721,8 +561,7 @@
   .zona-perigo .acao-perigo .desc-acao span { color: var(--text-dim); font-size: .85rem; }
 
   @media (max-width: 1150px) {
-    .venda-layout { grid-template-columns: 1fr; height: auto; }
-    .venda-direita { max-height: 700px; }
+    .venda-layout { grid-template-columns: 1fr; }
   }
   @media (max-width: 900px) { .graficos-grid { grid-template-columns: 1fr; } }
   @media (max-width: 720px) {
@@ -825,7 +664,7 @@
               </div>
               <button class="btn-desconto" id="btnDesconto" onclick="abrirModalDesconto()">💸 Aplicar Desconto</button>
 
-              <div id="formas-pagamento-misto" style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+              <div id="formas-pagamento-misto" style="display:flex;flex-direction:column;gap:6px;margin-top:4px">
                 <div class="linha-pagamento" data-forma="dinheiro">
                   <span class="icone-forma">💵</span>
                   <span class="nome-forma">Dinheiro</span>
@@ -931,7 +770,7 @@
               </div>
               <button class="btn-desconto" id="mesaBtnDesconto" onclick="abrirModalDescontoMesa()">💸 Aplicar Desconto</button>
 
-              <div id="mesa-formas-pagamento-misto" style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+              <div id="mesa-formas-pagamento-misto" style="display:flex;flex-direction:column;gap:6px;margin-top:4px">
                 <div class="linha-pagamento" data-forma="dinheiro">
                   <span class="icone-forma">💵</span>
                   <span class="nome-forma">Dinheiro</span>
@@ -1264,7 +1103,7 @@
 
         <div class="painel">
           <h3>🎨 Aparência</h3>
-          <div class="form-grid">
+          <div class="form-grid" style="margin-bottom: 20px;">
             <div class="campo">
               <label>Tema</label>
               <select id="cfgTema" onchange="aplicarTema(this.value)">
@@ -1281,7 +1120,18 @@
               </select>
             </div>
           </div>
-          <div class="campo" style="margin-top:10px">
+          
+          <div class="slider-group">
+            <label>🖥️ Zoom da Tela Inteira: <span id="lblZoomGeral">100%</span></label>
+            <input type="range" id="sliderZoomGeral" min="70" max="120" step="5" value="100" oninput="aplicarZoomGeral(this.value)">
+          </div>
+
+          <div class="slider-group">
+            <label>📦 Tamanho dos Cards de Produtos: <span id="lblTamanhoProdutos">180px</span></label>
+            <input type="range" id="sliderTamanhoProdutos" min="120" max="260" step="10" value="180" oninput="ajustarTamanhoProdutos(this.value)">
+          </div>
+
+          <div class="campo" style="margin-top:20px">
             <label><input type="checkbox" id="cfgSomCarrinho" onchange="salvarPreferencias()" style="width:auto;margin-right:8px">Som ao adicionar item no carrinho</label>
           </div>
         </div>
@@ -1334,16 +1184,6 @@
       </div>
 
     </div>
-  </div>
-
-  <div class="barra-atalhos">
-    <span><b>F1</b> Venda</span>
-    <span><b>F2</b> Dashboard</span>
-    <span><b>F3</b> Caixa</span>
-    <span><b>F4</b> Estoque</span>
-    <span><b>F5</b> Relatórios</span>
-    <span><b>F9</b> Finalizar</span>
-    <span><b>Esc</b> Limpar busca</span>
   </div>
 </div>
 
@@ -1513,7 +1353,7 @@ let graficos = { pagamento: null, topProdutos: null, porDia: null, movDiario: nu
 let caixaAtual = null;
 let ultimoRelatorio = null;
 let itensEntrada = [];
-let preferencias = { tema: 'escuro', tamanho: 'medio', somCarrinho: true };
+let preferencias = { tema: 'escuro', tamanho: 'medio', somCarrinho: true, zoomGeral: 100, tamanhoProdutos: 180 };
 
 let clienteMesaAtual = null;
 let carrinhoMesa = [];
@@ -1580,10 +1420,27 @@ function aplicarPreferenciasVisuais() {
   document.body.classList.remove('tema-claro', 'tamanho-pequeno', 'tamanho-medio', 'tamanho-grande');
   if (preferencias.tema === 'claro') document.body.classList.add('tema-claro');
   document.body.classList.add('tamanho-' + (preferencias.tamanho || 'medio'));
+  
   const btn = document.getElementById('btnTema');
   if (btn) btn.textContent = preferencias.tema === 'claro' ? '☀️' : '🌙';
+
+  // Aplica Zoom Geral
+  if (preferencias.zoomGeral) {
+    document.body.style.zoom = (preferencias.zoomGeral / 100);
+    const sliderZoom = document.getElementById('sliderZoomGeral');
+    const lblZoom = document.getElementById('lblZoomGeral');
+    if (sliderZoom) sliderZoom.value = preferencias.zoomGeral;
+    if (lblZoom) lblZoom.textContent = preferencias.zoomGeral + '%';
+  }
+
+  // Aplica Tamanho dos Produtos
+  if (preferencias.tamanhoProdutos) {
+    ajustarTamanhoProdutos(preferencias.tamanhoProdutos, false);
+  }
 }
+
 function toggleTema() { preferencias.tema = preferencias.tema === 'claro' ? 'escuro' : 'claro'; aplicarPreferenciasVisuais(); salvarPreferencias(); }
+
 async function salvarPreferencias() {
   const somEl = document.getElementById('cfgSomCarrinho');
   if (somEl) preferencias.somCarrinho = somEl.checked;
@@ -1592,6 +1449,34 @@ async function salvarPreferencias() {
 }
 function aplicarTema(v) { preferencias.tema = v; aplicarPreferenciasVisuais(); salvarPreferencias(); }
 function aplicarTamanho(v) { preferencias.tamanho = v; aplicarPreferenciasVisuais(); salvarPreferencias(); }
+
+function aplicarZoomGeral(valor) {
+  preferencias.zoomGeral = valor;
+  document.body.style.zoom = (valor / 100);
+  const lbl = document.getElementById('lblZoomGeral');
+  if (lbl) lbl.textContent = valor + '%';
+  salvarPreferencias();
+}
+
+function ajustarTamanhoProdutos(tamanho, salvar = true) {
+  preferencias.tamanhoProdutos = tamanho;
+  const gradeVenda = document.getElementById('gradeProdutos');
+  const gradeMesa = document.getElementById('mesaGradeProdutos');
+  
+  if (gradeVenda) {
+    gradeVenda.style.gridTemplateColumns = `repeat(auto-fill, minmax(${tamanho}px, 1fr))`;
+  }
+  if (gradeMesa) {
+    gradeMesa.style.gridTemplateColumns = `repeat(auto-fill, minmax(${tamanho}px, 1fr))`;
+  }
+  
+  const lbl = document.getElementById('lblTamanhoProdutos');
+  if (lbl) lbl.textContent = tamanho + 'px';
+  const slider = document.getElementById('sliderTamanhoProdutos');
+  if (slider) slider.value = tamanho;
+
+  if (salvar) salvarPreferencias();
+}
 
 /* ================= ATALHOS ================= */
 function tratarAtalhosGlobais(e) {
@@ -2067,6 +1952,16 @@ function carregarConfig() {
   document.getElementById('cfgTema').value = preferencias.tema || 'escuro';
   document.getElementById('cfgTamanho').value = preferencias.tamanho || 'medio';
   document.getElementById('cfgSomCarrinho').checked = preferencias.somCarrinho !== false;
+  
+  // Atualiza sliders
+  const zoom = preferencias.zoomGeral || 100;
+  const sliderZoom = document.getElementById('sliderZoomGeral');
+  if (sliderZoom) { sliderZoom.value = zoom; document.getElementById('lblZoomGeral').textContent = zoom + '%'; }
+  
+  const tamProd = preferencias.tamanhoProdutos || 180;
+  const sliderProd = document.getElementById('sliderTamanhoProdutos');
+  if (sliderProd) { sliderProd.value = tamProd; document.getElementById('lblTamanhoProdutos').textContent = tamProd + 'px'; }
+  
   renderFuncionarios();
 }
 async function salvarDadosLoja() {
@@ -2123,17 +2018,11 @@ async function renderFuncionarios() {
 async function excluirFuncionario(id) { if (!confirm('Excluir?')) return; await dbDelete('funcionarios', id); renderFuncionarios(); }
 
 /* ================= CAIXA ================= */
-/* ============================================================
-   CORREÇÃO: carregarCaixaAtual() agora detecta e fecha caixas
-   "órfãos" com status 'aberto' (sobras de duplo clique ou falha),
-   mantendo apenas o mais recente como aberto.
-   ============================================================ */
 async function carregarCaixaAtual() {
   const todos = await dbGetAll('fechamentos');
   const abertos = todos.filter(c => c.status === 'aberto');
 
   if (abertos.length > 1) {
-    // Mais de um "aberto": mantém o mais recente e fecha os demais.
     abertos.sort((a, b) => b.dataAbertura - a.dataAbertura);
     const principal = abertos[0];
     for (let i = 1; i < abertos.length; i++) {
@@ -2180,13 +2069,6 @@ function abrirModalAbrirCaixa() {
   abrirModal('modalAbrirCaixa');
   document.getElementById('caixaValorInicial').focus();
 }
-/* ============================================================
-   CORREÇÃO: confirmarAbrirCaixa() agora:
-   - fecha qualquer caixa 'aberto' fantasma antes de abrir o novo
-   - cria o novo caixa via dbAdd (gera caixaId novo e único)
-   - amarra caixa.id = caixa.caixaId = id
-   - limpa carrinhos para não vazar itens do ciclo anterior
-   ============================================================ */
 async function confirmarAbrirCaixa() {
   if (abrindoCaixa) return;
   abrindoCaixa = true;
@@ -2195,7 +2077,6 @@ async function confirmarAbrirCaixa() {
   if (btnAbrir) { btnAbrir.disabled = true; btnAbrir.textContent = '⏳ Abrindo...'; }
 
   try {
-    // 1) Fecha caixas "abertos" órfãos antes de abrir o novo
     const todos = await dbGetAll('fechamentos');
     const abertosAntigos = todos.filter(c => c.status === 'aberto');
     for (const c of abertosAntigos) {
@@ -2215,7 +2096,6 @@ async function confirmarAbrirCaixa() {
       await dbPut('fechamentos', c);
     }
 
-    // 2) Cria o novo caixa (dbAdd gera id novo e único)
     const valorInicial = parseFloat(document.getElementById('caixaValorInicial').value) || 0;
     const caixa = {
       dataAbertura: Date.now(),
@@ -2225,7 +2105,6 @@ async function confirmarAbrirCaixa() {
     };
     const id = await dbAdd('fechamentos', caixa);
 
-    // 3) Amarra caixaId = id e salva novamente
     caixa.id = id;
     caixa.caixaId = id;
     caixaAtual = caixa;
@@ -2235,7 +2114,6 @@ async function confirmarAbrirCaixa() {
     atualizarStatusCaixa();
     renderCaixa();
 
-    // 4) Limpa carrinhos para não levar itens do ciclo anterior
     if (carrinho.length > 0) {
       carrinho = [];
       descontoVenda = { valor: 0, tipo: 'valor', motivo: '', percentOriginal: 0 };
@@ -2408,26 +2286,6 @@ async function verDetalhesFechamento(id) {
     '</div>';
   abrirModal('modalVendasForma');
 }
-
-/* ============================================================
-   UTILITÁRIO DE DIAGNÓSTICO — rode UMA VEZ no console se
-   suspeitar de vendas órfãs (caixaId undefined).
-   ============================================================ */
-async function consertarVendasOrfas() {
-  const vendas = await dbGetAll('vendas');
-  const orfas = vendas.filter(v => v.caixaId == null);
-  console.log('Vendas órfãs encontradas:', orfas.length);
-  if (orfas.length === 0) { alert('Nenhuma venda órfã. Tudo certo!'); return; }
-  await carregarCaixaAtual();
-  if (!caixaAtual) { alert('Abra um caixa antes de rodar o conserto.'); return; }
-  if (!confirm('Vincular ' + orfas.length + ' venda(s) órfã(s) ao caixa atual "' + caixaAtual.caixaId + '"?')) return;
-  for (const v of orfas) {
-    v.caixaId = caixaAtual.caixaId;
-    await dbPut('vendas', v);
-  }
-  alert('✅ ' + orfas.length + ' venda(s) consertada(s). Recarregue o Dashboard.');
-}
-window.consertarVendasOrfas = consertarVendasOrfas;
 
 /* ================= ORDEM DOS PRODUTOS ================= */
 function ordenarProdutos(lista) {

@@ -68,7 +68,6 @@
   .campo label { font-size: .85rem; color: var(--text-dim); margin-bottom: 5px; }
   .campo input, .campo select, .campo textarea { padding: 11px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-input); color: var(--text); font-size: .95rem; }
   .campo input:focus, .campo select:focus { outline: none; border-color: var(--primary); }
-  .campo input[readonly] { background: var(--bg-hover); color: var(--text-dim); cursor: not-allowed; }
 
   .btn { padding: 11px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: .2s; font-size: .95rem; }
   .btn:disabled { opacity: .6; cursor: not-allowed; }
@@ -95,7 +94,6 @@
   .status-caixa .bolinha { width: 10px; height: 10px; border-radius: 50%; }
   .status-caixa.aberto .bolinha { background: var(--success); box-shadow: 0 0 8px var(--success); }
   .status-caixa.fechado .bolinha { background: var(--danger); }
-  .status-caixa .txt { color: var(--text); }
   .btn-tema { background: var(--bg-hover); border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 1rem; transition: .15s; }
   .btn-tema:hover { background: var(--border); }
 
@@ -104,7 +102,6 @@
   .sidebar .menu-item { padding: 13px 22px; cursor: pointer; color: var(--text-dim); font-size: .95rem; display: flex; align-items: center; gap: 10px; border-left: 3px solid transparent; transition: .15s; white-space: nowrap; }
   .sidebar .menu-item:hover { background: var(--bg-hover); color: var(--text); }
   .sidebar .menu-item.ativo { background: var(--bg-input); color: var(--primary); border-left-color: var(--primary); font-weight: bold; }
-  .sidebar .menu-item .icone { font-size: 1.1rem; }
 
   .conteudo { flex: 1; padding: 20px; display: flex; flex-direction: column; background: var(--bg-body); min-width: 0; }
   .secao { display: flex; flex-direction: column; width: 100%; }
@@ -120,22 +117,12 @@
   .msg.visivel { display: block; }
   .msg-ok { background: rgba(34,197,94,.15); border-left: 4px solid var(--success); color: var(--success); }
   .msg-erro { background: rgba(239,68,68,.15); border-left: 4px solid var(--danger); color: var(--danger); }
-  .msg-aviso { background: rgba(245,158,11,.15); border-left: 4px solid var(--warn); color: var(--warn); }
 
   .slider-group { margin-bottom: 20px; background: var(--bg-input); padding: 15px; border-radius: 8px; border: 1px solid var(--border); }
   .slider-group label { display: flex; justify-content: space-between; color: var(--text); font-weight: bold; font-size: 0.95rem; margin-bottom: 10px; }
   .slider-group input[type="range"] { width: 100%; cursor: pointer; accent-color: var(--primary); }
 
-  .bloco-calculo {
-    background: var(--bg-input);
-    border: 1.5px solid var(--primary);
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 15px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 12px;
-  }
+  .bloco-calculo { background: var(--bg-input); border: 1.5px solid var(--primary); border-radius: 10px; padding: 14px 16px; margin-bottom: 15px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
   .bloco-calculo .item-calc { display: flex; flex-direction: column; gap: 2px; }
   .bloco-calculo .item-calc .lbl-calc { font-size: .72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .5px; font-weight: bold; }
   .bloco-calculo .item-calc .val-calc { font-size: 1.25rem; font-weight: bold; color: var(--primary); }
@@ -144,15 +131,14 @@
 
   .hist-emb { background: var(--bg-input); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 15px; }
   .hist-emb .hist-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 10px; flex-wrap: wrap; }
-  .hist-emb .hist-header h4 { color: var(--primary); font-size: .9rem; font-weight: bold; display: flex; align-items: center; gap: 6px; }
+  .hist-emb .hist-header h4 { color: var(--primary); font-size: .9rem; font-weight: bold; }
   .hist-emb table { margin-top: 0; }
   .hist-emb th, .hist-emb td { padding: 8px 10px; font-size: .84rem; }
   .hist-emb tr.atual td { background: rgba(56,189,248,.12); font-weight: bold; }
   .hist-emb tr.atual td:first-child::before { content: "▸ "; color: var(--primary); }
-  .hist-emb .vazio-hist { color: var(--text-dimmer); font-size: .85rem; font-style: italic; text-align: center; padding: 15px; }
 
   .bloco-promo { background: rgba(245,158,11,.08); border: 1.5px solid var(--warn); border-radius: 10px; padding: 14px 16px; margin-bottom: 15px; }
-  .bloco-promo h4 { color: var(--warn); font-size: .9rem; font-weight: bold; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .bloco-promo h4 { color: var(--warn); font-size: .9rem; font-weight: bold; margin-bottom: 10px; }
   .bloco-promo .form-grid { margin-bottom: 0; }
   .bloco-promo .campo input { padding: 9px 11px; }
   .bloco-promo .aviso-promo { font-size: .78rem; color: var(--text-dimmer); margin-top: 8px; line-height: 1.4; }
@@ -182,7 +168,6 @@
   .mov-kpi .val { font-size: 1.5rem; font-weight: bold; color: var(--success); }
   .mov-kpi .val.azul { color: var(--primary); }
   .mov-kpi .val.amarelo { color: var(--warn); }
-  .mov-kpi .val.roxo { color: var(--roxo); }
   .mov-kpi .val.positivo { color: var(--success); }
   .mov-kpi .val.negativo { color: var(--danger); }
   .mov-kpi .sub { font-size: .78rem; color: var(--text-dimmer); margin-top: 4px; }
@@ -241,52 +226,15 @@
   .venda-aba:hover { border-color: var(--primary); color: var(--text); }
   .venda-aba.ativa { background: var(--primary); color: #fff; border-color: var(--primary); font-weight: bold; }
 
-  .grade-produtos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 12px;
-    padding-right: 6px;
-    align-content: start;
-  }
+  .grade-produtos { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; padding-right: 6px; align-content: start; }
 
-  .produto-card {
-    background: var(--bg-card);
-    border: 2px solid var(--border);
-    border-radius: 12px;
-    padding: 10px;
-    cursor: pointer;
-    transition: .15s;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    min-height: 200px;
-  }
-  .produto-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(56,189,248,.2);
-  }
+  .produto-card { background: var(--bg-card); border: 2px solid var(--border); border-radius: 12px; padding: 10px; cursor: pointer; transition: .15s; display: flex; flex-direction: column; position: relative; min-height: 200px; }
+  .produto-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(56,189,248,.2); }
   .produto-card.sem-estoque { opacity: .45; cursor: not-allowed; filter: grayscale(.6); }
   .produto-card.sem-estoque:hover { transform: none; border-color: var(--border); box-shadow: none; }
 
-  .produto-card .img-wrap {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    flex-shrink: 0;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 8px;
-  }
-  .produto-card .img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 4px;
-  }
+  .produto-card .img-wrap { width: 100%; aspect-ratio: 1 / 1; flex-shrink: 0; border-radius: 8px; overflow: hidden; background: #ffffff; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
+  .produto-card .img-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
   .produto-card .img-wrap .sem-img { color: #cbd5e1; font-size: 2.2rem; }
   .produto-card .nome { font-size: .88rem; font-weight: bold; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.2; flex-shrink: 0; }
   .produto-card .preco { font-size: 1.15rem; font-weight: bold; color: var(--success); margin-top: auto; padding-top: 6px; }
@@ -294,66 +242,19 @@
   .produto-card .preco-promo-info { font-size: .72rem; color: var(--warn); font-weight: bold; margin-top: 2px; }
   .produto-card .badge-estoque { position: absolute; top: 6px; right: 6px; font-size: .68rem; padding: 3px 8px; z-index: 2; }
 
-  .grade-produtos.modo-organizar .produto-card {
-    cursor: grab;
-    border-style: dashed;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(56,189,248,.15);
-  }
+  .grade-produtos.modo-organizar .produto-card { cursor: grab; border-style: dashed; border-color: var(--primary); box-shadow: 0 0 0 2px rgba(56,189,248,.15); }
   .grade-produtos.modo-organizar .produto-card:hover { transform: none; box-shadow: 0 0 0 3px rgba(56,189,248,.35); }
   .grade-produtos.modo-organizar .produto-card:active { cursor: grabbing; }
-  .grade-produtos.modo-organizar .produto-card::before {
-    content: "✥";
-    position: absolute;
-    top: 6px;
-    left: 6px;
-    background: var(--primary);
-    color: #fff;
-    width: 22px;
-    height: 22px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: .8rem;
-    font-weight: bold;
-    z-index: 3;
-  }
+  .grade-produtos.modo-organizar .produto-card::before { content: "✥"; position: absolute; top: 6px; left: 6px; background: var(--primary); color: #fff; width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: .8rem; font-weight: bold; z-index: 3; }
   .produto-card.arrastando { opacity: .35; transform: scale(.95); }
-  .produto-card.drop-target {
-    border-color: var(--success) !important;
-    border-style: solid !important;
-    box-shadow: 0 0 0 3px rgba(34,197,94,.4) !important;
-  }
-  .aviso-organizar {
-    background: rgba(56,189,248,.12);
-    border: 1.5px solid var(--primary);
-    border-radius: 8px;
-    padding: 10px 14px;
-    margin-bottom: 12px;
-    font-size: .85rem;
-    color: var(--primary);
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-  }
+  .produto-card.drop-target { border-color: var(--success) !important; border-style: solid !important; box-shadow: 0 0 0 3px rgba(34,197,94,.4) !important; }
+  .aviso-organizar { background: rgba(56,189,248,.12); border: 1.5px solid var(--primary); border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; font-size: .85rem; color: var(--primary); font-weight: bold; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-shrink: 0; }
 
   .carrinho-header { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
   .carrinho-header h3 { color: var(--primary); font-size: 1rem; }
   .carrinho-header .contador { background: var(--primary); color: #fff; padding: 3px 10px; border-radius: 12px; font-size: .78rem; font-weight: bold; }
 
-  .carrinho-topo {
-    padding: 10px 14px;
-    border-bottom: 1px solid var(--border);
-    background: var(--bg-input);
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    flex-shrink: 0;
-  }
+  .carrinho-topo { padding: 10px 14px; border-bottom: 1px solid var(--border); background: var(--bg-input); display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
   .carrinho-topo .linha-total { display: flex; justify-content: space-between; align-items: center; }
   .carrinho-topo .label { color: var(--text-dim); font-size: .85rem; }
   .carrinho-topo .valor { font-size: 1.5rem; font-weight: bold; color: var(--success); }
@@ -383,37 +284,11 @@
   .carrinho-rodape { padding: 10px 14px; border-top: 1px solid var(--border); background: var(--bg-input); flex-shrink: 0; }
 
   /* ============ FORMAS DE PAGAMENTO MISTO ============ */
-  .linha-pagamento {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 12px;
-    border-radius: 8px;
-    background: var(--bg-card);
-    border: 1.5px solid var(--border);
-    transition: .15s;
-  }
+  .linha-pagamento { display: flex; align-items: center; gap: 10px; padding: 6px 12px; border-radius: 8px; background: var(--bg-card); border: 1.5px solid var(--border); transition: .15s; }
   .linha-pagamento.ativa { border-color: var(--primary); background: rgba(56,189,248,.08); }
   .linha-pagamento .icone-forma { font-size: 1.2rem; flex-shrink: 0; width: 24px; text-align: center; }
-  .linha-pagamento .nome-forma {
-    font-size: .95rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: var(--text);
-    flex: 1;
-  }
-  .linha-pagamento .campo-valor-forma {
-    width: 100px;
-    flex-shrink: 0;
-    padding: 6px 8px;
-    border-radius: 6px;
-    border: 1.5px solid var(--border);
-    background: var(--bg-input);
-    color: var(--text);
-    font-size: .95rem;
-    font-weight: bold;
-    text-align: center;
-  }
+  .linha-pagamento .nome-forma { font-size: .95rem; font-weight: bold; text-transform: uppercase; color: var(--text); flex: 1; }
+  .linha-pagamento .campo-valor-forma { width: 100px; flex-shrink: 0; padding: 6px 8px; border-radius: 6px; border: 1.5px solid var(--border); background: var(--bg-input); color: var(--text); font-size: .95rem; font-weight: bold; text-align: center; }
   .linha-pagamento .campo-valor-forma:focus { outline: none; border-color: var(--primary); }
   .linha-pagamento .campo-valor-forma.tem-valor { background: rgba(34,197,94,.1); border-color: var(--success); color: var(--success); }
 
@@ -425,32 +300,10 @@
   .info-restante.negativo .val { color: var(--danger); }
   .info-restante.positivo .val { color: var(--success); }
 
-  /* ============ ATALHOS DE PAGAMENTO (Quadro Roxo) ============ */
-  .atalhos-pagamento {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-top: 4px;
-  }
-  .atalhos-pagamento button {
-    flex: 1;
-    min-width: 70px;
-    padding: 8px 4px;
-    border-radius: 8px;
-    border: 1.5px solid var(--border);
-    background: var(--bg-card);
-    color: var(--text);
-    cursor: pointer;
-    font-size: 0.75rem;
-    font-weight: bold;
-    transition: .15s;
-    white-space: nowrap;
-  }
-  .atalhos-pagamento button:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    background: rgba(56,189,248,.08);
-  }
+  /* ============ ATALHOS DE PAGAMENTO ============ */
+  .atalhos-pagamento { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+  .atalhos-pagamento button { flex: 1; min-width: 70px; padding: 8px 4px; border-radius: 8px; border: 1.5px solid var(--border); background: var(--bg-card); color: var(--text); cursor: pointer; font-size: 0.75rem; font-weight: bold; transition: .15s; white-space: nowrap; }
+  .atalhos-pagamento button:hover { border-color: var(--primary); color: var(--primary); background: rgba(56,189,248,.08); }
 
   .btn-finalizar { width: 100%; padding: 12px; border-radius: 8px; border: none; background: var(--success); color: #fff; font-size: 1.05rem; font-weight: bold; cursor: pointer; transition: .15s; }
   .btn-finalizar:hover:not(:disabled) { background: var(--success-hover); }
@@ -549,8 +402,6 @@
   .total-entrada .lbl-tot { color: var(--text-dim); font-size: .9rem; }
   .total-entrada .vlr-tot { font-size: 1.4rem; font-weight: bold; color: var(--success); }
 
-  .barra-atalhos { display: none; }
-
   .zona-perigo { border: 2px solid var(--danger) !important; background: rgba(239,68,68,.05); }
   .zona-perigo h3 { color: var(--danger) !important; }
   .zona-perigo p { color: var(--text-dim); font-size: .9rem; line-height: 1.6; margin-bottom: 14px; }
@@ -560,9 +411,7 @@
   .zona-perigo .acao-perigo .desc-acao b { color: var(--text); display: block; margin-bottom: 4px; }
   .zona-perigo .acao-perigo .desc-acao span { color: var(--text-dim); font-size: .85rem; }
 
-  @media (max-width: 1150px) {
-    .venda-layout { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 1150px) { .venda-layout { grid-template-columns: 1fr; } }
   @media (max-width: 900px) { .graficos-grid { grid-template-columns: 1fr; } }
   @media (max-width: 720px) {
     .sidebar { width: 60px; }
@@ -636,15 +485,11 @@
         <p class="descricao">Clique nos produtos ou bipe o código de barras</p>
         <div id="avisoCaixaFechado" class="msg msg-erro visivel" style="margin-bottom:14px">⚠️ <b>Caixa fechado!</b> Vá em 💰 Caixa e abra antes de vender.</div>
         <div id="alertaEstoqueBaixo"></div>
-        <div id="avisoOrganizarVenda" class="aviso-organizar oculto">
-          ✥ Modo organizar ativo — arraste os produtos para reordenar. Clicar não adiciona ao carrinho.
-        </div>
+        <div id="avisoOrganizarVenda" class="aviso-organizar oculto">✥ Modo organizar ativo — arraste os produtos para reordenar. Clicar não adiciona ao carrinho.</div>
         <div class="venda-layout">
           <div class="venda-esquerda">
             <div class="venda-busca">
-              <div class="venda-busca-wrap">
-                <input type="text" id="vendaBusca" placeholder="Buscar produto ou bipar código..." oninput="renderGradeProdutos()" autocomplete="off">
-              </div>
+              <div class="venda-busca-wrap"><input type="text" id="vendaBusca" placeholder="Buscar produto ou bipar código..." oninput="renderGradeProdutos()" autocomplete="off"></div>
               <button class="btn-organizar" id="btnOrganizarVenda" onclick="toggleOrganizarVenda()" title="Organizar ordem dos produtos (arrastar e soltar)">🔀 Organizar</button>
             </div>
             <div class="venda-abas" id="vendaAbas"></div>
@@ -652,41 +497,16 @@
           </div>
           <div class="venda-direita">
             <div class="carrinho-header"><h3>🛒 Carrinho</h3><span class="contador" id="contadorCarrinho">0</span></div>
-
             <div class="carrinho-topo">
-              <div class="linha-total">
-                <span class="label">TOTAL</span>
-                <span class="valor" id="totalCarrinho">R$ 0,00</span>
-              </div>
-              <div class="linha-total-detalhe" id="linhaTotalDetalhe" style="display:none">
-                <span>Desconto aplicado:</span>
-                <span class="desconto-val" id="descontoAplicadoVal">- R$ 0,00</span>
-              </div>
+              <div class="linha-total"><span class="label">TOTAL</span><span class="valor" id="totalCarrinho">R$ 0,00</span></div>
+              <div class="linha-total-detalhe" id="linhaTotalDetalhe" style="display:none"><span>Desconto aplicado:</span><span class="desconto-val" id="descontoAplicadoVal">- R$ 0,00</span></div>
               <button class="btn-desconto" id="btnDesconto" onclick="abrirModalDesconto()">💸 Aplicar Desconto</button>
-
               <div id="formas-pagamento-misto" style="display:flex;flex-direction:column;gap:6px;margin-top:4px">
-                <div class="linha-pagamento" data-forma="dinheiro">
-                  <span class="icone-forma">💵</span>
-                  <span class="nome-forma">Dinheiro</span>
-                  <input type="number" step="0.01" class="campo-valor-forma" id="pagDinheiro" placeholder="0,00" oninput="calcularPagamentoMisto()">
-                </div>
-                <div class="linha-pagamento" data-forma="credito">
-                  <span class="icone-forma">💳</span>
-                  <span class="nome-forma">Crédito</span>
-                  <input type="number" step="0.01" class="campo-valor-forma" id="pagCredito" placeholder="0,00" oninput="calcularPagamentoMisto()">
-                </div>
-                <div class="linha-pagamento" data-forma="debito">
-                  <span class="icone-forma">💳</span>
-                  <span class="nome-forma">Débito</span>
-                  <input type="number" step="0.01" class="campo-valor-forma" id="pagDebito" placeholder="0,00" oninput="calcularPagamentoMisto()">
-                </div>
-                <div class="linha-pagamento" data-forma="pix">
-                  <span class="icone-forma">📱</span>
-                  <span class="nome-forma">PIX</span>
-                  <input type="number" step="0.01" class="campo-valor-forma" id="pagPix" placeholder="0,00" oninput="calcularPagamentoMisto()">
-                </div>
+                <div class="linha-pagamento" data-forma="dinheiro"><span class="icone-forma">💵</span><span class="nome-forma">Dinheiro</span><input type="number" step="0.01" class="campo-valor-forma" id="pagDinheiro" placeholder="0,00" oninput="calcularPagamentoMisto()"></div>
+                <div class="linha-pagamento" data-forma="credito"><span class="icone-forma">💳</span><span class="nome-forma">Crédito</span><input type="number" step="0.01" class="campo-valor-forma" id="pagCredito" placeholder="0,00" oninput="calcularPagamentoMisto()"></div>
+                <div class="linha-pagamento" data-forma="debito"><span class="icone-forma">💳</span><span class="nome-forma">Débito</span><input type="number" step="0.01" class="campo-valor-forma" id="pagDebito" placeholder="0,00" oninput="calcularPagamentoMisto()"></div>
+                <div class="linha-pagamento" data-forma="pix"><span class="icone-forma">📱</span><span class="nome-forma">PIX</span><input type="number" step="0.01" class="campo-valor-forma" id="pagPix" placeholder="0,00" oninput="calcularPagamentoMisto()"></div>
               </div>
-
               <div class="atalhos-pagamento">
                 <button onclick="pagarTudoForma('dinheiro')">DINHEIRO</button>
                 <button onclick="pagarTudoForma('credito')">CREDITO</button>
@@ -694,30 +514,18 @@
                 <button onclick="pagarTudoForma('pix')">PIX</button>
                 <button onclick="limparPagamentosMisto()">✕ Limpar</button>
               </div>
-
-              <div class="info-restante" id="infoRestante">
-                <span class="lbl">Falta</span>
-                <span class="val" id="valorRestante">R$ 0,00</span>
-              </div>
-
+              <div class="info-restante" id="infoRestante"><span class="lbl">Falta</span><span class="val" id="valorRestante">R$ 0,00</span></div>
               <button class="btn-finalizar" id="btnFinalizar" onclick="finalizarVenda()" disabled>✅ Finalizar Venda</button>
             </div>
-
-            <div class="carrinho-itens" id="carrinhoItens">
-              <div class="carrinho-itens-titulo">Itens da venda</div>
-              <div class="carrinho-vazio">Nenhum item</div>
-            </div>
-
-            <div class="carrinho-rodape">
-              <button class="btn-limpar-carrinho" onclick="limparCarrinho()">🗑️ Limpar</button>
-            </div>
+            <div class="carrinho-itens" id="carrinhoItens"><div class="carrinho-itens-titulo">Itens da venda</div><div class="carrinho-vazio">Nenhum item</div></div>
+            <div class="carrinho-rodape"><button class="btn-limpar-carrinho" onclick="limparCarrinho()">🗑️ Limpar</button></div>
           </div>
         </div>
       </div>
 
       <div id="sec-clientes" class="secao oculto">
         <h2>👥 Clientes</h2>
-        <p class="descricao">Cadastre clientes e gerencie suas mesas — o carrinho de cada cliente fica salvo até o pagamento total</p>
+        <p class="descricao">Cadastre clientes e gerencie suas mesas</p>
         <div class="painel">
           <h3 id="tituloFormCliente">Novo Cliente</h3>
           <div class="form-grid">
@@ -726,73 +534,36 @@
             <div class="campo"><label>Observação</label><input type="text" id="cliObs" placeholder="Mesa 5, preferências..."></div>
           </div>
           <div id="msg-cliente" class="msg"></div>
-          <div style="margin-top:12px">
-            <button class="btn btn-success" onclick="salvarCliente()">💾 Salvar</button>
-            <button class="btn btn-sec" onclick="limparFormCliente()">🧹 Limpar</button>
-          </div>
+          <div style="margin-top:12px"><button class="btn btn-success" onclick="salvarCliente()">💾 Salvar</button><button class="btn btn-sec" onclick="limparFormCliente()">🧹 Limpar</button></div>
           <h3 style="margin-top:25px">Clientes Cadastrados</h3>
-          <div class="barra-busca">
-            <input type="text" id="buscaCliente" placeholder="🔍 Buscar nome ou telefone..." oninput="renderClientes()">
-          </div>
-          <table id="tabela-clientes">
-            <thead><tr><th>Nome</th><th>Telefone</th><th>Obs</th><th>Mesa (carrinho)</th><th>Ações</th></tr></thead>
-            <tbody></tbody>
-          </table>
+          <div class="barra-busca"><input type="text" id="buscaCliente" placeholder="🔍 Buscar nome ou telefone..." oninput="renderClientes()"></div>
+          <table id="tabela-clientes"><thead><tr><th>Nome</th><th>Telefone</th><th>Obs</th><th>Mesa (carrinho)</th><th>Ações</th></tr></thead><tbody></tbody></table>
           <div id="vazio-cli" class="vazio">Nenhum cliente cadastrado</div>
         </div>
       </div>
 
       <div id="sec-mesa" class="secao oculto">
         <h2>🍽️ Mesa de Cliente</h2>
-        <p class="descricao">A mesma área de venda, mas vinculada ao cliente <b id="mesaClienteNome">-</b>. O carrinho fica salvo até pagamento total ou reset manual.</p>
+        <p class="descricao">Vinculada ao cliente <b id="mesaClienteNome">-</b>. O carrinho fica salvo até pagamento total ou reset.</p>
         <div id="alertaEstoqueBaixoMesa"></div>
         <div class="venda-layout">
           <div class="venda-esquerda">
-            <div class="venda-busca">
-              <div class="venda-busca-wrap">
-                <input type="text" id="mesaBusca" placeholder="Buscar produto ou bipar código..." oninput="renderMesaGradeProdutos()" autocomplete="off">
-              </div>
-            </div>
+            <div class="venda-busca"><div class="venda-busca-wrap"><input type="text" id="mesaBusca" placeholder="Buscar produto ou bipar código..." oninput="renderMesaGradeProdutos()" autocomplete="off"></div></div>
             <div class="venda-abas" id="mesaAbas"></div>
             <div class="grade-produtos" id="mesaGradeProdutos"></div>
           </div>
           <div class="venda-direita">
             <div class="carrinho-header"><h3>🛒 Mesa</h3><span class="contador" id="mesaContadorCarrinho">0</span></div>
-
             <div class="carrinho-topo">
-              <div class="linha-total">
-                <span class="label">TOTAL</span>
-                <span class="valor" id="mesaTotalCarrinho">R$ 0,00</span>
-              </div>
-              <div class="linha-total-detalhe" id="mesaLinhaTotalDetalhe" style="display:none">
-                <span>Desconto aplicado:</span>
-                <span class="desconto-val" id="mesaDescontoAplicadoVal">- R$ 0,00</span>
-              </div>
+              <div class="linha-total"><span class="label">TOTAL</span><span class="valor" id="mesaTotalCarrinho">R$ 0,00</span></div>
+              <div class="linha-total-detalhe" id="mesaLinhaTotalDetalhe" style="display:none"><span>Desconto aplicado:</span><span class="desconto-val" id="mesaDescontoAplicadoVal">- R$ 0,00</span></div>
               <button class="btn-desconto" id="mesaBtnDesconto" onclick="abrirModalDescontoMesa()">💸 Aplicar Desconto</button>
-
               <div id="mesa-formas-pagamento-misto" style="display:flex;flex-direction:column;gap:6px;margin-top:4px">
-                <div class="linha-pagamento" data-forma="dinheiro">
-                  <span class="icone-forma">💵</span>
-                  <span class="nome-forma">Dinheiro</span>
-                  <input type="number" step="0.01" class="campo-valor-forma" id="mesaPagDinheiro" placeholder="0,00" oninput="calcularPagamentoMistoMesa()">
-                </div>
-                <div class="linha-pagamento" data-forma="credito">
-                  <span class="icone-forma">💳</span>
-                  <span class="nome-forma">Crédito</span>
-                  <input type="number" step="0.01" class="campo-valor-forma" id="mesaPagCredito" placeholder="0,00" oninput="calcularPagamentoMistoMesa()">
-                </div>
-                <div class="linha-pagamento" data-forma="debito">
-                  <span class="icone-forma">💳</span>
-                  <span class="nome-forma">Débito</span>
-                  <input type="number" step="0.01" class="campo-valor-forma" id="mesaPagDebito" placeholder="0,00" oninput="calcularPagamentoMistoMesa()">
-                </div>
-                <div class="linha-pagamento" data-forma="pix">
-                  <span class="icone-forma">📱</span>
-                  <span class="nome-forma">PIX</span>
-                  <input type="number" step="0.01" class="campo-valor-forma" id="mesaPagPix" placeholder="0,00" oninput="calcularPagamentoMistoMesa()">
-                </div>
+                <div class="linha-pagamento" data-forma="dinheiro"><span class="icone-forma">💵</span><span class="nome-forma">Dinheiro</span><input type="number" step="0.01" class="campo-valor-forma" id="mesaPagDinheiro" placeholder="0,00" oninput="calcularPagamentoMistoMesa()"></div>
+                <div class="linha-pagamento" data-forma="credito"><span class="icone-forma">💳</span><span class="nome-forma">Crédito</span><input type="number" step="0.01" class="campo-valor-forma" id="mesaPagCredito" placeholder="0,00" oninput="calcularPagamentoMistoMesa()"></div>
+                <div class="linha-pagamento" data-forma="debito"><span class="icone-forma">💳</span><span class="nome-forma">Débito</span><input type="number" step="0.01" class="campo-valor-forma" id="mesaPagDebito" placeholder="0,00" oninput="calcularPagamentoMistoMesa()"></div>
+                <div class="linha-pagamento" data-forma="pix"><span class="icone-forma">📱</span><span class="nome-forma">PIX</span><input type="number" step="0.01" class="campo-valor-forma" id="mesaPagPix" placeholder="0,00" oninput="calcularPagamentoMistoMesa()"></div>
               </div>
-
               <div class="atalhos-pagamento">
                 <button onclick="pagarTudoFormaMesa('dinheiro')">DINHEIRO</button>
                 <button onclick="pagarTudoFormaMesa('credito')">CREDITO</button>
@@ -800,20 +571,10 @@
                 <button onclick="pagarTudoFormaMesa('pix')">PIX</button>
                 <button onclick="limparPagamentosMistoMesa()">✕ Limpar</button>
               </div>
-
-              <div class="info-restante" id="mesaInfoRestante">
-                <span class="lbl">Falta</span>
-                <span class="val" id="mesaValorRestante">R$ 0,00</span>
-              </div>
-
+              <div class="info-restante" id="mesaInfoRestante"><span class="lbl">Falta</span><span class="val" id="mesaValorRestante">R$ 0,00</span></div>
               <button class="btn-finalizar" id="mesaBtnFinalizar" onclick="finalizarVendaMesa()" disabled>✅ Finalizar (pagamento total)</button>
             </div>
-
-            <div class="carrinho-itens" id="mesaCarrinhoItens">
-              <div class="carrinho-itens-titulo">Itens da mesa</div>
-              <div class="carrinho-vazio">Nenhum item</div>
-            </div>
-
+            <div class="carrinho-itens" id="mesaCarrinhoItens"><div class="carrinho-itens-titulo">Itens da mesa</div><div class="carrinho-vazio">Nenhum item</div></div>
             <div class="carrinho-rodape">
               <button class="btn-limpar-carrinho" onclick="limparCarrinhoMesa()">🗑️ Resetar Mesa (manual)</button>
               <button class="btn btn-sec btn-sm" style="margin-top:7px;width:100%" onclick="voltarParaClientes()">← Voltar</button>
@@ -840,9 +601,7 @@
         <p class="descricao">Registre compras — soma ao estoque atual</p>
         <div class="painel">
           <h3>➕ Adicionar Produtos</h3>
-          <div class="barra-busca">
-            <input type="text" id="estoqueBuscaProduto" placeholder="🔍 Buscar produto por nome ou código" oninput="renderListaBuscaEstoque()">
-          </div>
+          <div class="barra-busca"><input type="text" id="estoqueBuscaProduto" placeholder="🔍 Buscar produto por nome ou código" oninput="renderListaBuscaEstoque()"></div>
           <div id="listaBuscaEstoque" style="max-height:280px;overflow-y:auto;margin-bottom:14px"></div>
           <h3 style="margin-top:22px">📋 Itens da Entrada</h3>
           <div id="itensEntrada"><div class="vazio">Nenhum item adicionado</div></div>
@@ -853,10 +612,7 @@
           </div>
           <div id="msg-entrada" class="msg"></div>
         </div>
-        <div class="painel">
-          <h3>📜 Histórico</h3>
-          <div id="historicoEntradas"></div>
-        </div>
+        <div class="painel"><h3>📜 Histórico</h3><div id="historicoEntradas"></div></div>
       </div>
 
       <div id="sec-relatorios" class="secao oculto">
@@ -882,34 +638,22 @@
       <div id="sec-movimento" class="secao oculto">
         <h2>📅 Movimento</h2>
         <p class="descricao">Registre os totais vendidos dia a dia. O sistema soma por mês.</p>
-
         <div class="nav-mes">
           <button class="btn-mes" onclick="mudarMesMov(-1)" title="Mês anterior">◀</button>
           <div class="mes-atual" id="movMesAtual">—</div>
           <button class="btn-mes" onclick="mudarMesMov(1)" title="Próximo mês">▶</button>
           <button class="btn-hoje" onclick="voltarMesAtual()">📍 Mês Atual</button>
         </div>
-
         <div class="painel" id="movFormBox">
           <h3>➕ Novo Lançamento</h3>
           <div class="form-mov">
-            <div class="campo">
-              <label>Data</label>
-              <input type="date" id="movData">
-            </div>
-            <div class="campo">
-              <label>Valor Vendido (R$)</label>
-              <input type="number" step="0.01" id="movValor" placeholder="0,00" min="0">
-            </div>
-            <div class="campo">
-              <label>Observação (opcional)</label>
-              <input type="text" id="movObs" placeholder="Ex: Promoção, dia fraco...">
-            </div>
+            <div class="campo"><label>Data</label><input type="date" id="movData"></div>
+            <div class="campo"><label>Valor Vendido (R$)</label><input type="number" step="0.01" id="movValor" placeholder="0,00" min="0"></div>
+            <div class="campo"><label>Observação (opcional)</label><input type="text" id="movObs" placeholder="Ex: Promoção, dia fraco..."></div>
             <button class="btn btn-success" id="movBtnAdicionar" onclick="adicionarMovimento()" style="height:42px">➕ Adicionar</button>
           </div>
           <div id="msg-mov" class="msg"></div>
         </div>
-
         <div class="bloco-meta">
           <div class="linha-meta">
             <div class="campo-meta">
@@ -918,43 +662,24 @@
               <button class="btn btn-primary btn-sm" onclick="salvarMetaMov()">💾 Salvar Meta</button>
             </div>
           </div>
-          <div class="barra-progresso">
-            <div class="preenchida" id="movBarraProgresso" style="width:0%">0%</div>
-          </div>
+          <div class="barra-progresso"><div class="preenchida" id="movBarraProgresso" style="width:0%">0%</div></div>
           <div class="info-meta">
             <span>Vendido: <b id="movVendidoMeta">R$ 0,00</b> de <b id="movMetaExibida">R$ 0,00</b></span>
             <span id="movFaltaMeta" class="falta"></span>
           </div>
         </div>
-
         <div class="mov-kpis" id="movKpis"></div>
-
-        <div class="grafico-card" style="margin-bottom:20px">
-          <h3>📈 Evolução Diária do Mês</h3>
-          <canvas id="movGraficoDiario"></canvas>
-        </div>
-
-        <div class="painel">
-          <h3 id="movTituloTabela">Lançamentos do Mês</h3>
-          <div id="movTabela"></div>
-        </div>
-
+        <div class="grafico-card" style="margin-bottom:20px"><h3>📈 Evolução Diária do Mês</h3><canvas id="movGraficoDiario"></canvas></div>
+        <div class="painel"><h3 id="movTituloTabela">Lançamentos do Mês</h3><div id="movTabela"></div></div>
         <div class="painel">
           <h3>⚙️ Ações de Ciclo</h3>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
             <button class="btn btn-warn" onclick="iniciarNovoCiclo()">🔄 Iniciar Novo Ciclo (arquiva este mês)</button>
             <button class="btn btn-danger" onclick="limparTodosMovimentos()">🧹 Limpar Todos os Movimentos</button>
           </div>
-          <p style="font-size:.82rem;color:var(--text-dim);margin-top:12px;line-height:1.6">
-            <b>Iniciar Novo Ciclo:</b> move todos os lançamentos deste mês para o histórico e limpa a lista ativa para começar o próximo mês.<br>
-            <b>Limpar Todos:</b> apaga TODOS os lançamentos e todo o histórico (exige senha do admin).
-          </p>
+          <p style="font-size:.82rem;color:var(--text-dim);margin-top:12px;line-height:1.6"><b>Iniciar Novo Ciclo:</b> move todos os lançamentos deste mês para o histórico e limpa a lista ativa para começar o próximo mês.<br><b>Limpar Todos:</b> apaga TODOS os lançamentos e todo o histórico (exige senha do admin).</p>
         </div>
-
-        <div class="painel">
-          <h3>📚 Histórico de Meses</h3>
-          <div id="movHistorico"></div>
-        </div>
+        <div class="painel"><h3>📚 Histórico de Meses</h3><div id="movHistorico"></div></div>
       </div>
 
       <div id="sec-produtos" class="secao oculto">
@@ -974,72 +699,31 @@
             <div class="campo largo"><label>Imagem por URL</label><input type="text" id="prodImagemUrl" placeholder="https://..."></div>
             <div class="campo largo"><label>Ou envie do PC</label><input type="file" id="prodImagemArquivo" accept="image/*" onchange="carregarImagemLocal(event)"></div>
           </div>
-
           <div class="bloco-calculo">
-            <div class="item-calc">
-              <span class="lbl-calc">Custo por Unidade</span>
-              <span class="val-calc" id="calcCustoUnit">R$ 0,00</span>
-            </div>
-            <div class="item-calc markup">
-              <span class="lbl-calc">Markup</span>
-              <span class="val-calc" id="calcMarkup">0,00x</span>
-            </div>
-            <div class="item-calc margem">
-              <span class="lbl-calc">Margem</span>
-              <span class="val-calc" id="calcMargem">0,0 %</span>
-            </div>
+            <div class="item-calc"><span class="lbl-calc">Custo por Unidade</span><span class="val-calc" id="calcCustoUnit">R$ 0,00</span></div>
+            <div class="item-calc markup"><span class="lbl-calc">Markup</span><span class="val-calc" id="calcMarkup">0,00x</span></div>
+            <div class="item-calc margem"><span class="lbl-calc">Margem</span><span class="val-calc" id="calcMargem">0,0 %</span></div>
           </div>
-
           <div class="bloco-promo">
             <h4>🎯 Promoção (opcional)</h4>
-            <div class="campo" style="margin-bottom:10px">
-              <label style="display:flex;align-items:center;gap:8px;font-size:.9rem;color:var(--text)">
-                <input type="checkbox" id="prodPromoAtiva" style="width:auto;margin-right:4px" onchange="togglePromoFields()">
-                Ativar promoção para este produto
-              </label>
-            </div>
+            <div class="campo" style="margin-bottom:10px"><label style="display:flex;align-items:center;gap:8px;font-size:.9rem;color:var(--text)"><input type="checkbox" id="prodPromoAtiva" style="width:auto;margin-right:4px" onchange="togglePromoFields()">Ativar promoção para este produto</label></div>
             <div class="form-grid" id="promoFields" style="display:none">
-              <div class="campo">
-                <label>Quantidade mínima</label>
-                <input type="number" min="2" step="1" id="prodPromoQtd" value="3" placeholder="Ex: 3">
-              </div>
-              <div class="campo">
-                <label>Valor promocional (R$)</label>
-                <input type="number" step="0.01" id="prodPromoValor" placeholder="Ex: 18.00">
-              </div>
+              <div class="campo"><label>Quantidade mínima</label><input type="number" min="2" step="1" id="prodPromoQtd" value="3" placeholder="Ex: 3"></div>
+              <div class="campo"><label>Valor promocional (R$)</label><input type="number" step="0.01" id="prodPromoValor" placeholder="Ex: 18.00"></div>
             </div>
-            <p class="aviso-promo">
-              Ex: preço normal R$ 7,00 + promoção "3 por R$ 18,00" → quando o cliente levar 3 unidades, paga R$ 18,00 (economiza R$ 3,00). Em 6 unidades = 2× promoção = R$ 36,00.<br>
-              <b>O preço de venda original NÃO é alterado — a promoção só é aplicada no carrinho.</b>
-            </p>
+            <p class="aviso-promo">Ex: preço normal R$ 7,00 + promoção "3 por R$ 18,00" → quando o cliente levar 3 unidades, paga R$ 18,00 (economiza R$ 3,00). Em 6 unidades = 2× promoção = R$ 36,00.<br><b>O preço de venda original NÃO é alterado — a promoção só é aplicada no carrinho.</b></p>
           </div>
-
           <div class="hist-emb" id="histEmbalagensBox">
-            <div class="hist-header">
-              <h4>📋 Histórico de Embalagens <span id="histContador" style="color:var(--text-dim);font-weight:normal;font-size:.8rem"></span></h4>
-              <button class="btn btn-danger btn-sm" onclick="limparHistoricoEmbalagens()" id="btnLimparHist" style="display:none">🧹 Limpar histórico</button>
-            </div>
-            <div id="histEmbalagensConteudo">
-              <div class="vazio-hist">Nenhum registro ainda — será criado quando você salvar o produto.</div>
-            </div>
+            <div class="hist-header"><h4>📋 Histórico de Embalagens <span id="histContador" style="color:var(--text-dim);font-weight:normal;font-size:.8rem"></span></h4><button class="btn btn-danger btn-sm" onclick="limparHistoricoEmbalagens()" id="btnLimparHist" style="display:none">🧹 Limpar histórico</button></div>
+            <div id="histEmbalagensConteudo"><div class="vazio-hist">Nenhum registro ainda — será criado quando você salvar o produto.</div></div>
           </div>
-
           <div id="previewImagem" class="preview-img"></div>
           <div id="msg-prod" class="msg"></div>
-          <div style="margin-top:12px">
-            <button class="btn btn-success" onclick="salvarProduto()">💾 Salvar</button>
-            <button class="btn btn-sec" onclick="limparFormProduto()">🧹 Limpar</button>
-          </div>
+          <div style="margin-top:12px"><button class="btn btn-success" onclick="salvarProduto()">💾 Salvar</button><button class="btn btn-sec" onclick="limparFormProduto()">🧹 Limpar</button></div>
           <h3 style="margin-top:25px">Produtos Cadastrados</h3>
           <p style="font-size:.82rem;color:var(--text-dimmer);margin-bottom:10px">Dica: clique no olho 👁️ para ocultar o produto da venda. Use 🔀 Organizar na tela de Venda para reordenar.</p>
-          <div class="barra-busca">
-            <input type="text" id="buscaProduto" placeholder="🔍 Buscar nome ou código..." oninput="renderProdutos()">
-            <select id="filtroCategoria" onchange="renderProdutos()"><option value="">Todas</option></select>
-          </div>
-          <table id="tabela-produtos">
-            <thead><tr><th>Img</th><th>Código</th><th>Nome</th><th>Categoria</th><th>Preço</th><th>Custo Un.</th><th>Margem</th><th>Markup</th><th>Estoque</th><th>👁️</th><th>Ações</th></tr></thead>
-            <tbody></tbody>
-          </table>
+          <div class="barra-busca"><input type="text" id="buscaProduto" placeholder="🔍 Buscar nome ou código..." oninput="renderProdutos()"><select id="filtroCategoria" onchange="renderProdutos()"><option value="">Todas</option></select></div>
+          <table id="tabela-produtos"><thead><tr><th>Img</th><th>Código</th><th>Nome</th><th>Categoria</th><th>Preço</th><th>Custo Un.</th><th>Margem</th><th>Markup</th><th>Estoque</th><th>👁️</th><th>Ações</th></tr></thead><tbody></tbody></table>
           <div id="vazio-prod" class="vazio">Nenhum produto</div>
         </div>
       </div>
@@ -1079,7 +763,6 @@
       <div id="sec-config" class="secao oculto">
         <h2>⚙️ Configurações</h2>
         <p class="descricao">Apenas admin</p>
-
         <div class="painel">
           <h3>🏪 Dados da Loja</h3>
           <div class="form-grid">
@@ -1089,7 +772,6 @@
           <button class="btn btn-success" onclick="salvarDadosLoja()">💾 Salvar</button>
           <div id="msg-cfg-loja" class="msg"></div>
         </div>
-
         <div class="painel">
           <h3>🔐 Minha Senha</h3>
           <div class="form-grid">
@@ -1100,42 +782,16 @@
           <button class="btn btn-success" onclick="alterarSenha()">🔑 Alterar</button>
           <div id="msg-cfg-senha" class="msg"></div>
         </div>
-
         <div class="painel">
           <h3>🎨 Aparência</h3>
           <div class="form-grid" style="margin-bottom: 20px;">
-            <div class="campo">
-              <label>Tema</label>
-              <select id="cfgTema" onchange="aplicarTema(this.value)">
-                <option value="escuro">🌙 Escuro</option>
-                <option value="claro">☀️ Claro</option>
-              </select>
-            </div>
-            <div class="campo">
-              <label>Tamanho da Fonte</label>
-              <select id="cfgTamanho" onchange="aplicarTamanho(this.value)">
-                <option value="pequeno">Pequeno</option>
-                <option value="medio">Médio</option>
-                <option value="grande">Grande</option>
-              </select>
-            </div>
+            <div class="campo"><label>Tema</label><select id="cfgTema" onchange="aplicarTema(this.value)"><option value="escuro">🌙 Escuro</option><option value="claro">☀️ Claro</option></select></div>
+            <div class="campo"><label>Tamanho da Fonte</label><select id="cfgTamanho" onchange="aplicarTamanho(this.value)"><option value="pequeno">Pequeno</option><option value="medio">Médio</option><option value="grande">Grande</option></select></div>
           </div>
-          
-          <div class="slider-group">
-            <label>🖥️ Zoom da Tela Inteira: <span id="lblZoomGeral">100%</span></label>
-            <input type="range" id="sliderZoomGeral" min="70" max="120" step="5" value="100" oninput="aplicarZoomGeral(this.value)">
-          </div>
-
-          <div class="slider-group">
-            <label>📦 Tamanho dos Cards de Produtos: <span id="lblTamanhoProdutos">180px</span></label>
-            <input type="range" id="sliderTamanhoProdutos" min="120" max="260" step="10" value="180" oninput="ajustarTamanhoProdutos(this.value)">
-          </div>
-
-          <div class="campo" style="margin-top:20px">
-            <label><input type="checkbox" id="cfgSomCarrinho" onchange="salvarPreferencias()" style="width:auto;margin-right:8px">Som ao adicionar item no carrinho</label>
-          </div>
+          <div class="slider-group"><label>🖥️ Zoom da Tela Inteira: <span id="lblZoomGeral">100%</span></label><input type="range" id="sliderZoomGeral" min="70" max="120" step="5" value="100" oninput="aplicarZoomGeral(this.value)"></div>
+          <div class="slider-group"><label>📦 Tamanho dos Cards de Produtos: <span id="lblTamanhoProdutos">180px</span></label><input type="range" id="sliderTamanhoProdutos" min="120" max="260" step="10" value="180" oninput="ajustarTamanhoProdutos(this.value)"></div>
+          <div class="campo" style="margin-top:20px"><label><input type="checkbox" id="cfgSomCarrinho" onchange="salvarPreferencias()" style="width:auto;margin-right:8px">Som ao adicionar item no carrinho</label></div>
         </div>
-
         <div class="painel">
           <h3>👥 Funcionários</h3>
           <div class="form-grid">
@@ -1145,49 +801,23 @@
           </div>
           <button class="btn btn-success" onclick="salvarFuncionario()">💾 Adicionar</button>
           <div id="msg-cfg-func" class="msg"></div>
-          <table id="tabela-func" style="margin-top:18px">
-            <thead><tr><th>Nome</th><th>Usuário</th><th>Ações</th></tr></thead>
-            <tbody></tbody>
-          </table>
+          <table id="tabela-func" style="margin-top:18px"><thead><tr><th>Nome</th><th>Usuário</th><th>Ações</th></tr></thead><tbody></tbody></table>
           <div id="vazio-func" class="vazio">Nenhum funcionário</div>
         </div>
-
         <div class="painel zona-perigo">
           <h3>⚠️ Zona de Perigo</h3>
           <p>Ações abaixo apagam dados permanentemente. Use com cuidado.</p>
-
-          <div class="acao-perigo">
-            <div class="desc-acao">
-              <b>🧹 Zerar Vendas do Sistema</b>
-              <span>Apaga todo o histórico de vendas e fechamentos de caixa. <b>Mantém</b> produtos, categorias, clientes e funcionários.</span>
-            </div>
-            <button class="btn btn-warn" onclick="zerarVendasSistema()">Zerar Vendas</button>
-          </div>
-
-          <div class="acao-perigo">
-            <div class="desc-acao">
-              <b>📦 Zerar Entradas de Estoque</b>
-              <span>Apaga o histórico de entradas de estoque (não afeta o estoque atual dos produtos).</span>
-            </div>
-            <button class="btn btn-warn" onclick="zerarEntradasSistema()">Zerar Entradas</button>
-          </div>
-
-          <div class="acao-perigo">
-            <div class="desc-acao">
-              <b>💥 Reset Completo</b>
-              <span>Apaga <b>TUDO</b>: vendas, fechamentos, entradas, produtos, categorias, clientes, funcionários e configurações.</span>
-            </div>
-            <button class="btn btn-danger" onclick="resetCompleto()">💥 Reset Total</button>
-          </div>
+          <div class="acao-perigo"><div class="desc-acao"><b>🧹 Zerar Vendas do Sistema</b><span>Apaga todo o histórico de vendas e fechamentos de caixa. <b>Mantém</b> produtos, categorias, clientes e funcionários.</span></div><button class="btn btn-warn" onclick="zerarVendasSistema()">Zerar Vendas</button></div>
+          <div class="acao-perigo"><div class="desc-acao"><b>📦 Zerar Entradas de Estoque</b><span>Apaga o histórico de entradas de estoque (não afeta o estoque atual dos produtos).</span></div><button class="btn btn-warn" onclick="zerarEntradasSistema()">Zerar Entradas</button></div>
+          <div class="acao-perigo"><div class="desc-acao"><b>💥 Reset Completo</b><span>Apaga <b>TUDO</b>: vendas, fechamentos, entradas, produtos, categorias, clientes, funcionários e configurações.</span></div><button class="btn btn-danger" onclick="resetCompleto()">💥 Reset Total</button></div>
         </div>
-
       </div>
 
     </div>
   </div>
 </div>
 
-<!-- MODAL DESCONTO -->
+<!-- MODAIS -->
 <div id="modalDesconto" class="modal-fundo oculto">
   <div class="modal">
     <h3>💸 Aplicar Desconto</h3>
@@ -1196,18 +826,9 @@
       <button class="tab-desc ativa" id="tabDescValor" onclick="mudarTabDesconto('valor')">R$ (valor fixo)</button>
       <button class="tab-desc" id="tabDescPercent" onclick="mudarTabDesconto('percent')">% (percentual)</button>
     </div>
-    <div class="campo">
-      <label id="lblDescontoInput">Valor do desconto (R$)</label>
-      <input type="number" step="0.01" id="descInput" placeholder="0,00" min="0" oninput="previewDesconto()">
-    </div>
-    <div class="campo">
-      <label>Motivo (opcional)</label>
-      <input type="text" id="descMotivo" placeholder="Ex: cliente fidelidade, promoção..." maxlength="60">
-    </div>
-    <div style="background:var(--bg-input);border-radius:8px;padding:12px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center">
-      <span style="font-size:.85rem;color:var(--text-dim);font-weight:bold">TOTAL COM DESCONTO</span>
-      <span style="font-size:1.3rem;font-weight:bold;color:var(--success)" id="descPreviewTotal">R$ 0,00</span>
-    </div>
+    <div class="campo"><label id="lblDescontoInput">Valor do desconto (R$)</label><input type="number" step="0.01" id="descInput" placeholder="0,00" min="0" oninput="previewDesconto()"></div>
+    <div class="campo"><label>Motivo (opcional)</label><input type="text" id="descMotivo" placeholder="Ex: cliente fidelidade, promoção..." maxlength="60"></div>
+    <div style="background:var(--bg-input);border-radius:8px;padding:12px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:.85rem;color:var(--text-dim);font-weight:bold">TOTAL COM DESCONTO</span><span style="font-size:1.3rem;font-weight:bold;color:var(--success)" id="descPreviewTotal">R$ 0,00</span></div>
     <div id="msg-desc" class="msg"></div>
     <div style="display:flex;gap:10px;margin-top:12px">
       <button class="btn btn-success" style="flex:1" onclick="confirmarDesconto()">✅ Aplicar</button>
@@ -1236,10 +857,7 @@
     <h3>Venda Registrada!</h3>
     <p id="sucessoInfo"></p>
     <div class="valor-final" id="sucessoValor">R$ 0,00</div>
-    <div id="sucessoTroco" class="info-troco oculto">
-      <div class="lbl">💵 Troco</div>
-      <div class="val" id="sucessoTrocoValor">R$ 0,00</div>
-    </div>
+    <div id="sucessoTroco" class="info-troco oculto"><div class="lbl">💵 Troco</div><div class="val" id="sucessoTrocoValor">R$ 0,00</div></div>
     <button class="btn btn-success btn-full" style="margin-top:14px" onclick="fecharModalSucesso()">Nova Venda</button>
   </div>
 </div>
@@ -1339,7 +957,6 @@ let descontoMesa = { valor: 0, tipo: 'valor', motivo: '', percentOriginal: 0 };
 let contextoDesconto = 'venda';
 let tabDesconto = 'valor';
 
-/* Controle de fechamento */
 let fechandoCaixa = false;
 let timeoutFechamento = null;
 
@@ -1424,7 +1041,6 @@ function aplicarPreferenciasVisuais() {
   const btn = document.getElementById('btnTema');
   if (btn) btn.textContent = preferencias.tema === 'claro' ? '☀️' : '🌙';
 
-  // Aplica Zoom Geral
   if (preferencias.zoomGeral) {
     document.body.style.zoom = (preferencias.zoomGeral / 100);
     const sliderZoom = document.getElementById('sliderZoomGeral');
@@ -1433,7 +1049,6 @@ function aplicarPreferenciasVisuais() {
     if (lblZoom) lblZoom.textContent = preferencias.zoomGeral + '%';
   }
 
-  // Aplica Tamanho dos Produtos
   if (preferencias.tamanhoProdutos) {
     ajustarTamanhoProdutos(preferencias.tamanhoProdutos, false);
   }
@@ -1463,12 +1078,8 @@ function ajustarTamanhoProdutos(tamanho, salvar = true) {
   const gradeVenda = document.getElementById('gradeProdutos');
   const gradeMesa = document.getElementById('mesaGradeProdutos');
   
-  if (gradeVenda) {
-    gradeVenda.style.gridTemplateColumns = `repeat(auto-fill, minmax(${tamanho}px, 1fr))`;
-  }
-  if (gradeMesa) {
-    gradeMesa.style.gridTemplateColumns = `repeat(auto-fill, minmax(${tamanho}px, 1fr))`;
-  }
+  if (gradeVenda) gradeVenda.style.gridTemplateColumns = `repeat(auto-fill, minmax(${tamanho}px, 1fr))`;
+  if (gradeMesa) gradeMesa.style.gridTemplateColumns = `repeat(auto-fill, minmax(${tamanho}px, 1fr))`;
   
   const lbl = document.getElementById('lblTamanhoProdutos');
   if (lbl) lbl.textContent = tamanho + 'px';
@@ -1953,7 +1564,6 @@ function carregarConfig() {
   document.getElementById('cfgTamanho').value = preferencias.tamanho || 'medio';
   document.getElementById('cfgSomCarrinho').checked = preferencias.somCarrinho !== false;
   
-  // Atualiza sliders
   const zoom = preferencias.zoomGeral || 100;
   const sliderZoom = document.getElementById('sliderZoomGeral');
   if (sliderZoom) { sliderZoom.value = zoom; document.getElementById('lblZoomGeral').textContent = zoom + '%'; }
